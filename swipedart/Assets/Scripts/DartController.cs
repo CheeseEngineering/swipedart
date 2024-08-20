@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DartController : MonoBehaviour
 {
     // 던지는 속도, 회전 속도 변수
+    public float baseSpeed;
     public float throwingSpeed;
     public float rotateSpeed;
     // 버튼 내려갔을때, 버튼 올라갔을때 좌표 변수 및 좌표 사이의 거리 변수
@@ -35,6 +37,7 @@ public class DartController : MonoBehaviour
             swipeDistance = rightButtonPosition - leftButtonPosition;
             rotateSpeed = 30f;
             throwingSpeed = swipeDistance.y * 0.002f;
+            baseSpeed = swipeDistance.y * 0.002f;
         }
             // 월드 좌표계를 기준으로 이동
             this.transform.Translate(0, throwingSpeed, 0, Space.World);
@@ -43,7 +46,19 @@ public class DartController : MonoBehaviour
             this.transform.Rotate(0, 0, rotateSpeed, Space.Self);
             Debug.Log(this.transform.position);
             throwingSpeed *= 0.96f;
+            baseSpeed *= 0.96f;
             rotateSpeed *= 0.96f;
+
+        if (baseSpeed < 0.5)
+        {
+            this.transform.Translate(0, -throwingSpeed, 0, Space.World);
+            Debug.Log(this.transform.position);
+            // 게임오브젝트 좌표계를 기준으로 회전
+            this.transform.Rotate(0, 0, rotateSpeed, Space.Self);
+            Debug.Log(this.transform.position);
+            throwingSpeed *= 1.2f;
+            rotateSpeed *= 0.96f;
+        }
 
     }
 }
