@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 1670708562}
   - component: {fileID: 1670708561}
   m_Layer: 0
-  m_Name: Throwing_Stars
+  m_Name: Dart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1b43046893fc340953bd83f3b8892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpeed: 0
   throwingSpeed: 0
   rotateSpeed: 0
   leftButtonPosition: {x: 0, y: 0, z: 0}
@@ -310,7 +311,7 @@ Transform:
   m_GameObject: {fileID: 1670708560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.52, z: 0}
+  m_LocalPosition: {x: 0, y: -4.56, z: 0}
   m_LocalScale: {x: 0.527, y: 0.5824, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

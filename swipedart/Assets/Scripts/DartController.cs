@@ -48,17 +48,16 @@ public class DartController : MonoBehaviour
             throwingSpeed *= 0.96f;
             baseSpeed *= 0.96f;
             rotateSpeed *= 0.96f;
-
-        if (baseSpeed < 0.5)
+        // 화면 밖으로 벗어나지 못하게
+        if (this.transform.position.y > 4.45)
         {
-            this.transform.Translate(0, -throwingSpeed, 0, Space.World);
-            Debug.Log(this.transform.position);
-            // 게임오브젝트 좌표계를 기준으로 회전
-            this.transform.Rotate(0, 0, rotateSpeed, Space.Self);
-            Debug.Log(this.transform.position);
-            throwingSpeed *= 1.2f;
-            rotateSpeed *= 0.96f;
+            throwingSpeed = 0;
         }
+        else if (this.transform.position.y < -4.5)
+        {
+            throwingSpeed = 0;
+        }
+
 
     }
 }
